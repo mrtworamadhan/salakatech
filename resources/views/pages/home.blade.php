@@ -1,143 +1,208 @@
 @extends('layouts.public')
 
-@section('title', 'SalakaTech - Solusi Digital untuk Bisnis Anda')
+@section('title', 'SalakaTech - Empowering Business Through Technology')
 
 @section('content')
 
-    {{-- 1. HERO SECTION --}}
-    <section class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-center">
-            <h1 class="text-4xl lg:text-5xl font-extrabold tracking-tight">Transformasi Digital untuk Bisnis Anda</h1>
-            <p class="mt-6 max-w-2xl mx-auto text-lg lg:text-xl text-blue-100">
-                Kami membantu UMKM, lembaga, dan instansi untuk bertumbuh dan lebih efisien melalui solusi perangkat lunak yang dirancang khusus untuk kebutuhan Anda.
-            </p>
-            <div class="mt-8 flex justify-center gap-4">
-                <a href="#produk" class="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 transition">
-                    Lihat Produk Kami
-                </a>
-                <a href="#kontak" class="inline-block bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-400 transition">
-                    Hubungi Sales
-                </a>
-            </div>
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[60rem] h-[30rem] bg-cyan-600/20 blur-[100px] rounded-full"></div>
+            <div class="absolute bottom-0 right-0 w-[40rem] h-[40rem] bg-blue-600/10 blur-[120px] rounded-full"></div>
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05]"></div>
         </div>
-    </section>
 
-    {{-- 2. PRODUK SECTION --}}
-    <section id="produk" class="py-16 lg:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900">Produk dan Layanan Unggulan</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-gray-600">Solusi siap pakai dan layanan kustom yang dirancang untuk menyelesaikan masalah spesifik di industri Anda.</p>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-8">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                PT Cahya Salaka Tech
             </div>
-            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                {{-- Loop untuk produk dari database --}}
-                @foreach ($products as $product)
-                    <div class="group bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
-                        <div class="p-6">
-                            <img src="{{ Storage::url($product->icon_path) }}" alt="{{ $product->name }}" class="h-16 w-16 mx-auto mb-5 object-contain">
-                            <h3 class="font-bold text-lg text-gray-900 text-center">{{ $product->name }}</h3>
-                            <p class="text-sm text-gray-600 mt-2 text-center h-16">{{ $product->tagline }}</p>
-                        </div>
-                        <div class="mt-auto p-6 bg-gray-50 group-hover:bg-gray-100 transition-all duration-300">
-                             <a href="{{ route('product.detail', $product) }}" class="text-blue-600 font-semibold text-sm flex items-center justify-center">
-                                <span>Lihat Detail</span>
-                                <i data-feather="arrow-right" class="w-4 h-4 ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-
-                {{-- Kartu statis untuk "Custom App" --}}
-                <div class="group bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <div class="p-6">
-                        <img src="{{ asset('img/costumapp.png') }}" alt="Custom App" class="h-16 w-16 mx-auto mb-5 object-contain">
-                        <h3 class="font-bold text-lg text-gray-900 text-center">Aplikasi Custom</h3>
-                        <p class="text-sm text-gray-600 mt-2 text-center h-16">Punya kebutuhan unik? Kami siap bangun aplikasi web & mobile sesuai proses bisnis Anda.</p>
-                    </div>
-                    <div class="mt-auto p-6 bg-gray-50 group-hover:bg-gray-100 transition-all duration-300">
-                        <a href="https://wa.me/6285772797020" target="_blank" class="text-blue-600 font-semibold text-sm flex items-center justify-center">
-                            <span>Diskusikan Sekarang</span>
-                            <i data-feather="arrow-right" class="w-4 h-4 ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    {{-- 3. TESTIMONI (OUR CUSTOMER) SECTION --}}
-    <section id="portfolio" class="py-16 lg:py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900">Dipercaya oleh Berbagai Klien</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-gray-600">Kami bangga dapat membantu dan menjadi bagian dari kesuksesan mereka.</p>
-            </div>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {{-- Testimoni 1 --}}
-                <div class="bg-white rounded-xl shadow-md p-8">
-                    <i data-feather="message-square" class="w-8 h-8 text-blue-500 mb-4"></i>
-                    <p class="text-gray-700">"Aplikasi angonTernak sangat membantu manajemen peternakan kami menjadi lebih rapi dan efisien. Laporan jadi cepat dibuat."</p>
-                    <div class="mt-6 border-t border-gray-100 pt-5">
-                        <p class="font-bold text-gray-800">Pak Agus</p>
-                        <p class="text-sm text-gray-500">Koperasi Ternak Maju Bersama</p>
-                    </div>
-                </div>
-                {{-- Testimoni 2 --}}
-                <div class="bg-white rounded-xl shadow-md p-8">
-                    <i data-feather="users" class="w-8 h-8 text-blue-500 mb-4"></i>
-                    <p class="text-gray-700">"Tim SalakaTech sangat responsif dan solusinya bisa disesuaikan dengan kebutuhan organisasi kami. Proses administrasi desa jadi lebih modern."</p>
-                    <div class="mt-6 border-t border-gray-100 pt-5">
-                        <p class="font-bold text-gray-800">Ibu Rina</p>
-                        <p class="text-sm text-gray-500">Lembaga Desa Cipta Karya</p>
-                    </div>
-                </div>
-                {{-- Testimoni 3 --}}
-                <div class="bg-white rounded-xl shadow-md p-8">
-                    <i data-feather="award" class="w-8 h-8 text-blue-500 mb-4"></i>
-                    <p class="text-gray-700">"Sangat puas! Kami pakai evencapt untuk mengelola event internal dan hasilnya memuaskan. Peserta mudah mendaftar dan kami mudah merekapnya."</p>
-                    <div class="mt-6 border-t border-gray-100 pt-5">
-                        <p class="font-bold text-gray-800">Mas Yoga</p>
-                        <p class="text-sm text-gray-500">EO Semarak Pesta</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- 4. KONTAK SECTION --}}
-    <section id="kontak" class="py-16 lg:py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900">Punya Pertanyaan?</h2>
-            <p class="mt-4 max-w-2xl mx-auto text-gray-600">Kami siap membantu. Hubungi kami melalui detail di bawah ini atau kirim pesan langsung via WhatsApp untuk respon yang lebih cepat.</p>
+            <h1 class="text-5xl lg:text-7xl font-bold tracking-tight text-white mb-6">
+                Transformasi Digital <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Tanpa Batas.</span>
+            </h1>
             
-            <div class="mt-10 bg-gray-50 border border-gray-200 rounded-2xl p-8 inline-block text-left">
-                <p class="text-lg font-bold text-gray-800">PT CAHYA SALAKA TECH</p>
-                <div class="mt-4 space-y-4">
-                    <div class="flex items-start">
-                        <i data-feather="map-pin" class="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <strong>Alamat:</strong>
-                            <p class="text-gray-700">Jl. Raya Ciomas, BBHS - Pintu Ledeng, Ciomas, Bogor 16610</p>
-                        </div>
+            <p class="mt-6 max-w-2xl mx-auto text-lg text-slate-400 leading-relaxed">
+                Mitra teknologi strategis untuk UMKM, Instansi Pemerintah, dan Korporasi. Kami membangun ekosistem digital yang efisien, terukur, dan berdampak.
+            </p>
+            
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#produk" class="px-8 py-3.5 rounded-lg bg-cyan-600 text-white font-bold hover:bg-cyan-500 transition shadow-lg shadow-cyan-500/20">
+                    Lihat Ekosistem
+                </a>
+                <a href="#kontak" class="px-8 py-3.5 rounded-lg border border-white/10 bg-white/5 text-white font-bold hover:bg-white/10 transition">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="produk" class="py-24 bg-[#0f172a] border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">Ekosistem Produk</h2>
+                <p class="text-slate-400">Solusi spesifik untuk industri yang berbeda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <a href="#" class="group relative bg-[#1e293b] rounded-2xl p-8 border border-white/5 hover:border-green-500/50 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+                    <div class="absolute inset-0 bg-gradient-to-b from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl"></div>
+                    
+                    <img src="{{ asset('images/angon-ternak.png') }}" 
+                         alt="angonTernak" 
+                         class="h-16 w-auto mb-6 object-contain group-hover:scale-110 transition duration-300">
+                    
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition">angonTernak</h3>
+                    <p class="text-sm text-slate-400 mb-6 flex-1">Platform manajemen peternakan modern. Pantau kesehatan, pakan, dan hasil ternak dalam satu genggaman.</p>
+                    
+                    <div class="flex items-center text-green-500 text-sm font-bold mt-auto">
+                        <span>Coming Soon</span>
                     </div>
-                    <div class="flex items-start">
-                        <i data-feather="mail" class="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <strong>Email:</strong>
-                            <p><a href="mailto:salaka.tech@gmail.com" class="text-blue-600 hover:underline">salaka.tech@gmail.com</a></p>
-                        </div>
+                </a>
+
+                <a href="https://evencapt.com" target="_blank" class="group relative bg-[#1e293b] rounded-2xl p-8 border border-white/5 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+                    <div class="absolute inset-0 bg-gradient-to-b from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl"></div>
+                    
+                    <img src="{{ asset('images/evencapt.png') }}" 
+                         alt="Evencapt" 
+                         class="h-16 w-auto mb-6 object-contain group-hover:scale-110 transition duration-300">
+                    
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition">Evencapt</h3>
+                    <p class="text-sm text-slate-400 mb-6 flex-1">Solusi manajemen acara & buku tamu digital. Dari resepsi pernikahan hingga turnamen olahraga (Olympus).</p>
+                    
+                    <div class="flex items-center text-purple-500 text-sm font-bold mt-auto">
+                        <span>Kunjungi Website</span>
+                        <i data-feather="external-link" class="w-4 h-4 ml-2"></i>
                     </div>
-                    <div class="flex items-start">
-                        <i data-feather="phone" class="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <strong>WhatsApp:</strong>
-                            <p><a href="https://wa.me/6285772797020" class="text-blue-600 hover:underline">0857 7279 7020</a></p>
-                        </div>
+                </a>
+
+                <a href="https://datacerdas.com" target="_blank" class="group relative bg-[#1e293b] rounded-2xl p-8 border border-white/5 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+                    <div class="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl"></div>
+                    
+                    <img src="{{ asset('images/data-cerdas.png') }}" 
+                         alt="DataCerdas" 
+                         class="h-16 w-auto mb-6 object-contain group-hover:scale-110 transition duration-300">
+                    
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition">DataCerdas</h3>
+                    <p class="text-sm text-slate-400 mb-6 flex-1">Analisis data dan AI untuk keputusan bisnis yang lebih akurat. Ubah data mentah menjadi wawasan berharga.</p>
+                    
+                    <div class="flex items-center text-blue-500 text-sm font-bold mt-auto">
+                        <span>Kunjungi Website</span>
+                        <i data-feather="external-link" class="w-4 h-4 ml-2"></i>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/6281277761133?text=Halo%20SalakaTech,%20saya%20mau%20konsultasi%20pembuatan%20aplikasi%20custom" target="_blank" class="group relative bg-[#1e293b] rounded-2xl p-8 border border-white/5 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+                    <div class="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl"></div>
+                    
+                    <div class="w-16 h-16 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <i data-feather="code" class="text-cyan-500 w-8 h-8"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition">Custom Development</h3>
+                    <p class="text-sm text-slate-400 mb-6 flex-1">Butuh solusi unik? Kami bangun aplikasi Web, Android, & iOS yang disesuaikan 100% dengan proses bisnis Anda.</p>
+                    
+                    <div class="flex items-center text-cyan-500 text-sm font-bold mt-auto">
+                        <span>Konsultasi Sekarang</span>
+                        <i data-feather="message-circle" class="w-4 h-4 ml-2"></i>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#020617] border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white">Dipercaya Oleh</h2>
+                <p class="text-slate-400 mt-2">Partner kami dalam membangun masa depan digital.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-[#0f172a] p-8 rounded-2xl border border-white/5 relative">
+                    <i data-feather="message-square" class="w-8 h-8 text-cyan-600 mb-4 absolute top-8 right-8 opacity-20"></i>
+                    <p class="text-slate-300 italic mb-6">"Aplikasi angonTernak sangat membantu manajemen peternakan kami menjadi lebih rapi dan efisien. Laporan jadi cepat dibuat."</p>
+                    <div>
+                        <p class="font-bold text-white">Pak Agus</p>
+                        <p class="text-sm text-slate-500">Koperasi Ternak Maju Bersama</p>
+                    </div>
+                </div>
+                <div class="bg-[#0f172a] p-8 rounded-2xl border border-white/5 relative">
+                    <i data-feather="users" class="w-8 h-8 text-cyan-600 mb-4 absolute top-8 right-8 opacity-20"></i>
+                    <p class="text-slate-300 italic mb-6">"Tim SalakaTech sangat responsif. Solusi Custom App mereka benar-benar menjawab kebutuhan administrasi desa kami."</p>
+                    <div>
+                        <p class="font-bold text-white">Ibu Rina</p>
+                        <p class="text-sm text-slate-500">Lembaga Desa Cipta Karya</p>
+                    </div>
+                </div>
+                <div class="bg-[#0f172a] p-8 rounded-2xl border border-white/5 relative">
+                    <i data-feather="award" class="w-8 h-8 text-cyan-600 mb-4 absolute top-8 right-8 opacity-20"></i>
+                    <p class="text-slate-300 italic mb-6">"Evencapt membuat event kantor kami terasa sangat canggih. Fitur check-in QR code-nya sangat cepat dan anti antri."</p>
+                    <div>
+                        <p class="font-bold text-white">Mas Yoga</p>
+                        <p class="text-sm text-slate-500">Corporate Secretary</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="kontak" class="py-24 bg-[#0f172a] border-t border-white/5 relative overflow-hidden">
+        <div class="absolute right-0 bottom-0 opacity-10">
+            <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#06b6d4" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.2,-19.2,95.8,-5.2C93.5,8.9,82,22.1,70.8,33.4C59.6,44.7,48.7,54.1,36.4,61.9C24.1,69.7,10.4,75.9,-2.4,80.1C-15.2,84.3,-29.3,86.5,-41.8,80.8C-54.3,75.1,-65.2,61.5,-73.6,47.4C-82,33.3,-88,18.7,-86.3,4.9C-84.6,-8.9,-75.2,-21.9,-64.8,-32.8C-54.4,-43.7,-43,-52.5,-31.1,-60.9C-19.2,-69.3,-6.8,-77.3,7,-89.4L20.8,-101.5Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Siap Berkolaborasi?</h2>
+            <p class="text-slate-400 mb-12 max-w-2xl mx-auto">
+                Diskusikan kebutuhan teknologi Anda bersama tim ahli kami. Konsultasi gratis untuk menemukan solusi terbaik bagi bisnis Anda.
+            </p>
+            
+            <div class="bg-[#1e293b]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12 text-left inline-block w-full">
+                <div class="flex flex-col md:flex-row items-start justify-between gap-8">
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-feather="map-pin" class="text-cyan-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Kantor Pusat</h4>
+                                <p class="text-slate-400 text-sm mt-1">Jl. Raya Ciomas, BBHS - Pintu Ledeng,<br>Ciomas, Bogor 16610</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-feather="mail" class="text-cyan-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Email</h4>
+                                <a href="mailto:salaka.tech@gmail.com" class="text-slate-400 text-sm mt-1 hover:text-cyan-400 transition">salaka.tech@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-auto flex flex-col gap-4">
+                        <a href="https://wa.me/6281277761133" target="_blank" class="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold transition shadow-lg shadow-green-900/20 w-full md:w-auto">
+                            <i data-feather="message-circle"></i>
+                            Chat WhatsApp
+                        </a>
+                        <p class="text-center text-xs text-slate-500">Respon cepat: Senin - Sabtu (09.00 - 17.00)</p>
+                    </div>
+
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-white/5 text-center md:text-left">
+                    <p class="text-lg font-bold text-white">PT CAHYA SALAKA TECH</p>
+                    <p class="text-xs text-slate-500 mt-1">Registered Tech Company</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
 @endsection

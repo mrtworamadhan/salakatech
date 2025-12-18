@@ -3,46 +3,34 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@yield('title', 'SalakaTech - Solusi Digital UMKM')</title>
+    <title>@yield('title', 'SalakaTech - Solusi Digital Terdepan')</title>
 
     {{-- Aset Favicon & Meta --}}
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="apple-mobile-web-app-title" content="SalakaTech">
-    <meta name="application-name" content="SalakaTech">
+    <meta name="theme-color" content="#020617">
+    <meta name="description" content="PT Cahya Salaka Tech - Partner transformasi digital terpercaya untuk UMKM, Instansi, dan Korporasi.">
     
     {{-- Script Eksternal --}}
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
-<body class="bg-white text-gray-800">
+{{-- UPDATED: Background Gelap Corporate --}}
+<body class="bg-[#020617] text-slate-300 antialiased selection:bg-cyan-500 selection:text-white">
 
-    {{-- Kita panggil Navbar Publik --}}
+    {{-- Navbar (Include file partial navbar kamu, pastikan navbarnya support dark mode ya bro) --}}
+    {{-- Kalau navbar masih hardcode putih, nanti kabari, kita gelapin juga --}}
     @include('layouts.partials.public-navbar')
 
     <main>
         @yield('content')
     </main>
 
-    {{-- Kita panggil Footer Publik --}}
+    {{-- Footer --}}
     @include('layouts.partials.public-footer')
 
-    {{-- Script untuk Feather Icons & Burger Menu --}}
     <script>
         feather.replace()
-
-        const burger = document.getElementById('burger');
-        const menu = document.getElementById('menu');
-        if (burger) {
-            burger.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-            });
-        }
     </script>
 </body>
 </html>
