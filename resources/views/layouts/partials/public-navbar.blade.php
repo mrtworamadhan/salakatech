@@ -1,7 +1,7 @@
 <header class="bg-white shadow sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <a href="{{ route('home') }}" class="flex items-center space-x-2">
-            <img src="{{ asset('img/logo.png') }}" alt="SalakaTech Logo" class="w-10 h-10 object-contain">
+            <img src="{{ asset('images/logo.png') }}" alt="SalakaTech Logo" class="w-10 h-10 object-contain">
             <span class="font-bold text-lg text-gray-800">SalakaTech</span>
         </a>
 
