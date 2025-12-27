@@ -113,6 +113,32 @@
         </div>
     </section>
 
+    <section class="border-y border-white/5 bg-[#0f172a]/50 backdrop-blur-md relative z-20">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <div class="flex items-center gap-5 text-center md:text-left flex-col md:flex-row">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-cyan-500 blur-lg opacity-20 rounded-full"></div>
+                        <div class="w-12 h-12 rounded-full bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center relative z-10">
+                            <i data-feather="activity" class="text-cyan-400 w-6 h-6 animate-pulse"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg">Client Project Monitor</h3>
+                        <p class="text-slate-400 text-sm">Sedang membangun aplikasi bersama kami? Pantau progress pengerjaan Anda di sini.</p>
+                    </div>
+                </div>
+
+                <a href="{{ route('project.preview') }}" class="flex-shrink-0 px-8 py-3 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-cyan-600 hover:border-cyan-500 hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 flex items-center gap-2 group">
+                    <span>Cek Status Project</span>
+                    <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
     <section class="py-24 bg-[#020617] border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">

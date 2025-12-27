@@ -12,6 +12,9 @@ Route::get('/produk/{product:slug}', [PageController::class, 'productDetail'])->
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/project/preview', function () {
+    return view('project-preview');
+})->name('project.preview');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
