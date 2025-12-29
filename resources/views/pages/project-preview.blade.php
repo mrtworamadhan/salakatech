@@ -91,7 +91,7 @@
 
             </div>
 
-            <div class="group relative bg-[#1e293b] rounded-3xl border border-white/10 p-8 md:p-10 overflow-hidden transition-all duration-300 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/10">
+            <div class="group relative bg-[#1e293b] mb- 5 rounded-3xl border border-white/10 p-8 md:p-10 overflow-hidden transition-all duration-300 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/10">
                 
                 <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
